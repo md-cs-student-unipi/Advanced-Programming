@@ -19,4 +19,4 @@ Accademic Year: 2018/2019
 6. [Haskell](06-Haskell.md)
 7. [Functional programming in Java 8](07-Java-8-Functional-Programming.md)
 8. [[Optional] RUST](slides/24-RUST.pdf)
-9. [Scripting Languages and Python]()
+9. [Scripting Languages and Python](09-Scripting-languages-Python.md)
