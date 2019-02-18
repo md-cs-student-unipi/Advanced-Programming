@@ -18,7 +18,7 @@ A runtime system implements the execution model of a programming language and pr
 
 **The runtime support is needed for:**
 
-- memory menagement: push/pop activation records on stack, allocation and garbage collection on heap)
+- memory menagement: push/pop activation records on stack, allocation and garbage collection on heap
 - I/O management
 - runtime environment interaction
 - parallel execution threads/tasks/processes
