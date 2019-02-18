@@ -84,7 +84,7 @@ To avoid clashes between class-private names and names defined by subclasses, al
 #### Special methods
 `__str__(self)` is the equivalent of the `toString` in Java.
 
-`__iter__ ` returns an iterator for the class (for example a collection).
+`__iter__(self)` returns an iterator for the class (for example a collection).
 
 Operators:
 
@@ -112,7 +112,7 @@ Similarly to static method there are class methods (`@classmethod`), that have a
 Generators are functions that returns data with the `yield` statement. Each time the `next()` is called the generator resumes where it left-off, keeping all the data values and remembering which statements were already executed. The `__iter__()` and `next()` methods are created automatically. Indeed, a function is an object (of class function), and hence can have methods.
 
 ### Classes
-Classes in Pyhton are like structs in C: contains attributes (functions are object, so attribute too). For that reason we cannot have function overloading (same function with different number of args) since we will have more than one attribute with the same name.
+Classes in Python are like structs in C: contains attributes (functions are object, so attribute too). For that reason we cannot have function overloading (same function with different number of args) since we will have more than one attribute with the same name.
 
 #### Class inheritance
 Python support multiple inheritance: `class SubClass(Super1, ..., SuperN):`.
@@ -138,7 +138,7 @@ On multiple lists: ` list(map(lambda x, y : x+y, range(4), range(10)))` (will cu
 `filter(func, iterable)` return an iterator that yelds the values in the iterable for whom the function is true. In func is None return only the elements evalued as True (not False, not None, not 0 ...).
 
 #### functools
-Higher-order functions on iterables. E.g. reduce(function, iterable[, ini1alizer])
+Higher-order functions on iterables. E.g. reduce(function, iterable[, initializer])
 
 #### itertools
 Functions for creating iterators:
