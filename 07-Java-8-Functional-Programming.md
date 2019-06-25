@@ -42,7 +42,7 @@ Lambdas can be interpreted as instances of anonymous inner classes implementing 
 As for the method references, lambdas can be assigned to variables: `Runnable runnable = () -> { System.out.println("Hello Lambda!"); };`
 
 ### Examples of functional interfaces
-```
+```java
 // function with parameters without return value
 public interface Consumer<T> {  // and BiConsumer
   void accept(T t);
@@ -101,7 +101,7 @@ Short-circuit intermediate methods can cause the erlier intermediate methods to 
 An example of short-circuit method is a filter, that cause the procession of items until the current one is not a suitable output.
 
 #### Intermediate operations
-```
+```java
 Stream<T> filter(Predicate<T> predicate)     // filter
 IntStream mapToInt(ToIntFunction<T> mapper)  // map f:T -> int
 <R> Stream<R> map(Function<T,R> mapper)      // map f:T->R
@@ -113,7 +113,7 @@ Stream<T> skip(long n)                       // skips first n elements
 ```
 
 #### Terminal operations
-```
+```java
 void forEach(Consumer<T> action)                     // for-iterator
 Object[] toArray()                                   // accumulator
 T reduce(T identity, BinaryOperator<T> accumulator)  // fold
@@ -128,7 +128,7 @@ Optional<T> findAny()                      // return a value, short-circuiting
 
 #### Iterator and generators
 Generates infinite streams.
-```
+```java
 // Iterator
 static <T> Stream<T> iterate(T seed, UnaryOperator<T> f)
 
