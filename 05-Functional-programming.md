@@ -87,8 +87,8 @@ Example: in `λx.λy.λz.(x+z)` x and z are bound, y is free.
 `f(x,y) = <exp>` ≡ `f = λx.λy.<exp>`
 
 
-## Paramether passing mechanism
-- Applicative order evaluation: parameter are evaluated befor applying the function (eager evaluation, parameter passed by value).
+## Parameter passing mechanism
+- Applicative order evaluation: parameter are evaluated before applying the function (eager evaluation, parameter passed by value).
 - Normal order evaluation: functions evaluated first, arguments if and when needed (parameter passed by name)
 
 
