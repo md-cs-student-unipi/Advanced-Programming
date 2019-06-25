@@ -8,17 +8,17 @@ _Slides:_
 
 
 ## Data types
-```
+```haskell
 data Color = Red | Yellow | Blue
 ```
 
-```
+```haskell
 data Tree = Leaf Int | Node (Int, Tree, Tree)
 ```
 
 
 ## Case expressions
-```
+```haskell
 case t of
   Leaf n -> ...
   Node(n, lt, rt) -> ...
@@ -33,30 +33,30 @@ case t of
 Any curried function with more than one argument is higher-order: applied to one argument it returns a function.
 
 ### From functional to stream-like
-```
+```haskell
 length(tail(reverse [1,2,3])) => 2
 ```
 becomes
-```
+```haskell
 [1,2,3] |> reverse |> tail |> length => 2
 ```
 
 ### Map
 Applies argument function to each element in a collection.
 
-```
+```haskell
 map (+1) [1,2,3] => [2,3,4]
 ```
 
 ### Filter
 Takes a collection and a boolean predicate, and returns the collection of the elements satisfying the predicate.
-```
+```haskell
 filter even [1..10] => [2,4,6,8,10]
 ```
 
 ### Reduce
 `foldl`, `foldr`, `foldl'`, `foldl1` etc.
-```
+```haskell
 sum' xs = foldl (\acc x -> acc + x) 0 xs
 ```
 The difference between `foldl` and `foldr` is that the first start from the top, so is appliable also to infite lists, the second one requires a finite list.
@@ -69,7 +69,7 @@ Iteration and recursion are equally powerful in theoretical sense. Anyway, in ge
 
 ### Tail recursive functions
 #### Non tail-recursive
-```
+```haskell
 int rfun() {
   ...
   return 1+rfun();
@@ -77,7 +77,7 @@ int rfun() {
 ```
 
 #### Tail recursive
-```
+```haskell
 int trfun() {
   ...
   return trfun();
@@ -86,12 +86,12 @@ int trfun() {
 
 #### Example
 Quadratic, non tail recursive
-```
+```haskell
 reverse [] = []
 reverse (x:xs) = (reverse xs) ++ [x]
 ```
 Can be rewritten with tail-recursion in linear time
-```
+```haskell
 reverse xs =
   let rev ([], accum) = accum
       rev (y:ys, accum) = rev (ys, y:accum)
@@ -120,7 +120,7 @@ Usage: `member:: Eq w => w -> [w] -> Bool`.
 
 ### Declaration
 The class declaration says what the Num operations are.
-```
+```haskell
 class Num a where
   (+) :: a -> a -> a
   (*) :: a -> a -> a
@@ -130,7 +130,7 @@ class Num a where
 
 ### Instance
 An instance declaration for a type Int says how the Num operations are implemented on Int’s.
-```
+```haskell
 instance Num Int where
   a + b = intPlus a b
   a * b = intTimes a b
@@ -140,7 +140,7 @@ instance Num Int where
 
 ### Default methods
 Type classes can define default methods. Instance declaration can still override it by providing a more specific definition. If an instance declaration doesn't provide a method implementation, the default one is applied.
-```
+```haskell
 class Eq a where
   (==) :: a -> a -> Bool
   x == y = not (x /= y)
@@ -152,26 +152,26 @@ If is not necessary to override the default definition, deriving can be used.
 
 #### Deriving
 For `Read`, `Show`, `Bounded`, `Enum`, `Eq` and `Ord` the compiler can generate instance declaration automatically.
-```
+```haskell
 data Color = Red | Green | Blue
   deriving (Show, Read, Eq, Ord)
 ```
 
 ### Under the hood
 This
-```
+```haskell
 square :: Num n => n -> n
 square x = x * x
 ```
 is compiled into this
-```
+```haskell
 square :: Num n -> n -> n
 square d x = (*) d x x
 ```
 where the extra value argument d of the function is a value of data type Num n and represents a dictionary of the required operations.
 
 Furtermore, the compiler converts each type class declaration into a distionary type declaration and a set of selector functions. In other words, this
-```
+```haskell
 instance Num Int where
   a + b = intPlus a b
   a * b = intTimes a b
@@ -179,7 +179,7 @@ instance Num Int where
   ...
 ```
 is compiled into this
-```
+```haskell
 dNumInt :: Num Int
 dNumInt = MkNum intPlus
                 intTimes
@@ -188,12 +188,12 @@ dNumInt = MkNum intPlus
 ```
 
 #### Compositionally
-```
+```haskell
 sumSq :: Num n => n -> n -> n
 sumSq x y = square x + square y
 ```
 becomes
-```
+```haskell
 sumSq :: Num n -> n -> n -> n
 sumSq d x y = (+) d (square d x) (square d y)
 ```
@@ -203,7 +203,7 @@ sumSq d x y = (+) d (square d x) (square d y)
 A type class where the predicate is over a type constructors rather than on a type.
 
 Example:
-```
+```haskell
 instance Functor Tree where
   fmap f (Leaf x) = Leaf (f x)
   fmap f (Node(t1,t2)) = Node(fmap f t1, fmap f t2)
