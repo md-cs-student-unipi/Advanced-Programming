@@ -29,7 +29,7 @@ case t of
 `f :: A -> B` means for every x ∈ A, if f(x) terminates, then f(x) ∈ B.
 
 
-## Higer order functions
+## Higher order functions
 Any curried function with more than one argument is higher-order: applied to one argument it returns a function.
 
 ### From functional to stream-like
@@ -59,7 +59,7 @@ filter even [1..10] => [2,4,6,8,10]
 ```haskell
 sum' xs = foldl (\acc x -> acc + x) 0 xs
 ```
-The difference between `foldl` and `foldr` is that the first start from the top, so is appliable also to infite lists, the second one requires a finite list.
+The difference between `foldl` and `foldr` is that the first start from the top, so is applicable also to infinite lists, the second one requires a finite list.
 
 The difference between `foldl` and `foldl'` is that the second one uses tail-recursion (see below) and for that reason is more performant.
 
@@ -170,7 +170,7 @@ square d x = (*) d x x
 ```
 where the extra value argument d of the function is a value of data type Num n and represents a dictionary of the required operations.
 
-Furtermore, the compiler converts each type class declaration into a distionary type declaration and a set of selector functions. In other words, this
+Furthermore, the compiler converts each type class declaration into a dictionary type declaration and a set of selector functions. In other words, this
 ```haskell
 instance Num Int where
   a + b = intPlus a b
@@ -212,7 +212,9 @@ instance Functor Tree where
 ## Monads
 Constructor classes (type constructor) introducing operations for "putting a value into a box" (`return`) and compose functions that return "boxed" values (**bind**: `x >>= y`).
 
-`(>>=) :: Maybe a -> (a -> Maybe b) -> Maybe b`
+```haskell
+(>>=) :: Maybe a -> (a -> Maybe b) -> Maybe b
+```
 
 Functors with fmap allow to apply functions inside "boxes".
 
@@ -226,13 +228,17 @@ Functors with fmap allow to apply functions inside "boxes".
 - Writer
 
 ### Maybe
-`data Maybe a = Nothing | Just a`
+```haskell
+data Maybe a = Nothing | Just a
+```
 
 A value of type `Maybe a` is a possibly undefined value of type `a`.  
 A function `f :: a ->  Maybe b` is a partial function from `a` to `b`.
 
 ### Main
-`main::[Response] -> [Request]`
+```haskell
+main::[Response] -> [Request]
+```
 
 ### IO
 IO is a type constructor, instance of Monad. A value of type `IO t` is a computation or "action" that, when performed, may do some input/output before delivering a result of type t.
@@ -240,11 +246,13 @@ IO is a type constructor, instance of Monad. A value of type `IO t` is a computa
 - `return` returns the value without making I/O
 - Then (`>>`) and bind (`>>=`) composes two actions sequentially into a larger action.
 
-`(>>=) :: IO a -> (a -> IO b) -> IO b`
+```haskell
+(>>=) :: IO a -> (a -> IO b) -> IO b
+```
 
 ![Bind scheme](img/Haskell-bind.png)
 
 Binds the result of the left-hand action in the action on the right.
 
 Evaluating an action has no effect, performing the action has the effect.  
-The only way to perform an actio is to call it at some point, directly or indirectly, from Main.main.
+The only way to perform an action is to call it at some point, directly or indirectly, from Main.main.
