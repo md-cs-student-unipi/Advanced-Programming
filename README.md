@@ -4,6 +4,7 @@ University of Pisa
 Teacher: [prof. Andrea Corradini](http://pages.di.unipi.it/corradini/)
 
 Author: [Aldo D'Aquino](https://github.com/daquinoaldo)
+
 Contributors: Andrea Bongiorno, [Gaspare Ferraro](https://github.com/GaspareG)
 
 Accademic Year: 2018/2019  
