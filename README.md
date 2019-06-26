@@ -1,14 +1,16 @@
 # Advanced Programming Notes
 
-University  of Pisa  
-Teacher: prof. Andrea Corradini
+University of Pisa  
+Teacher: [prof. Andrea Corradini](http://pages.di.unipi.it/corradini/)
 
-Author: Aldo D'Aquino  
-Contributors: Andrea Bongiorno
+Author: [Aldo D'Aquino](https://github.com/daquinoaldo)
+Contributors: Andrea Bongiorno, [Gaspare Ferraro](https://github.com/GaspareG)
 
 Accademic Year: 2018/2019  
-[Course Syllabus](Syllabus.pdf)  
-[Course introduction](00-Course-introduction.md)
+
+- [Course Syllabus](Syllabus.pdf)  
+- [Course introduction](00-Course-introduction.md)
+- [Oral exams questions](Questions.md)
 
 ## Table of content
 1. [Languages, Abstract Machines and Execution models](01-Languages-Abstract-machines-Execution-models.md) ([pdf](pdf/01-Languages-Abstract-machines-Execution-models.pdf))
