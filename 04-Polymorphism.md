@@ -47,12 +47,12 @@ It is resolved at runtime (dynamic binding) with invokevirtual.
 - Function Templates in C++ (explicit)
 
 #### Function Templates in C++
-```
+```c++
 template <class T> // or <typename T>
 T sqr(T x) { return x * x; }
 ```
 Compiler/linker automatically generates one version for each parameter type used by a program:
-```
+```c++
 int a = sqr(5);        // generates int sqr(int x) { return x * x; }
 double b = sqr(3.14);  // generates double sqr(double x) { return x * x; }
 ```
@@ -75,7 +75,7 @@ Producer Extends, Consumer Super:
 - Contravariance: `? super T` to insert valued in a consumer.
 
 Example:
-```
+```java
 <T> void copy(List< ? super T > dst, List< ? extends T > src);
 ```
 
@@ -86,8 +86,8 @@ The **goal** of the STL is to represent algorithms in as general form as possibl
 - Container: collection of typed objects.
 - Algorithm: initialization, sorting, searching and transforming of containers' contents.
 - Iterator: generalization of pointer address, used for decoupling algorithms from containers.
-- Template: make algorithms indipendent from data-types.
-- Adaptor: conert from one form to another.
+- Template: make algorithms independent from data-types.
+- Adaptor: convert from one form to another.
 - Function object: form of closure.
 - Allocator: encapsulation of a memory pool.
 
@@ -111,7 +111,7 @@ Iterators implements operations in constant time.
 Containers may support different operators depending on their structure.
 
 - Forward iterators: dereference (operator\*) and pre/post increment operators (++operator/operator++).
-- Input and output iterators: forward iterators with possible issues in deferencing the the iterator due to I/O operations.
+- Input and output iterators: forward iterators with possible issues in dereferencing the the iterator due to I/O operations.
 - Bidirectional iterators: forward iterators with pre/post decrement operators (--operator/operator--).
 - Random access iterator: bidirectional iterators with integer sum and difference (operator+n/operator-n)
 
@@ -124,10 +124,10 @@ Containers may support different operators depending on their structure.
 When a container is modified iterators to it can become invalid: the result of operations on  them is not defined.
 
 ### Memory model
-STL abstract the memory model with _allocators_. Allocators are classes that incapsulate the information about the memory model. Each container is parametrized by such an allocator to let the implementation unchanged when switching memory models.
+STL abstract the memory model with _allocators_. Allocators are classes that encapsulate the information about the memory model. Each container is parametrized by such an allocator to let the implementation unchanged when switching memory models.
 
 ### Limitations
-- Iterators provides a linear view of a container, so can be defined only algorithm operating on single-dimention containers.
+- Iterators provides a linear view of a container, so can be defined only algorithm operating on single-dimension containers.
 - Iterators keep information about the state of the visit: the complexity of the state grow with the complexity of the container.
 - Lack of error checking with STL.
 - All facilities of the compiler fails with STL.
