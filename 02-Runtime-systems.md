@@ -18,7 +18,7 @@ A runtime system implements the execution model of a programming language and pr
 
 **The runtime support is needed for:**
 
-- memory menagement: push/pop activation records on stack, allocation and garbage collection on heap
+- memory management: push/pop activation records on stack, allocation and garbage collection on heap
 - I/O management
 - runtime environment interaction
 - parallel execution threads/tasks/processes
@@ -32,7 +32,7 @@ It is made by the JVM and the JCL (Java Class Library, aka Java API).
 
 # Java Virtual Machine (JVM)
 It is an abstract machine for the bytecode.  
-Oracle doesn't provide details about the implementation of the JVS, but there are **specifications for a machine indipendent class file format**. Every language that can be compiled in a .class file can be executed by the JVM.
+Oracle doesn't provide details about the implementation of the JVS, but there are **specifications for a machine independent class file format**. Every language that can be compiled in a .class file can be executed by the JVM.
 
 Each JVM has an internal representation (implementation dependent) of classes, objects and primitive types.
 
@@ -82,7 +82,7 @@ Threads have **shared access to heap and persistent memory**. The latter include
 Each thread has its **separate stack area**. That area **includes**:
 
 - PC: **pointer counter** to the next instruction in the method area
-- Java **stack**: a stack of frames (activation records), a frame is added every time a method is invoked and destroied every time the methods completes. Them are not allocated continuosly.
+- Java **stack**: a stack of frames (activation records), a frame is added every time a method is invoked and destroyed every time the methods completes. Them are not allocated continuously.
 - Native stack: used for invocation of native functions.   
 
 #### Thread life-cycle
@@ -131,10 +131,10 @@ Is applied on the heap
 ### Object finalization
 Before deallocating an object, the Garbage Collector calls the `finalize` method. It is possible to override this method, although deprecated.
 
-The finalization is called also on classes, usually when JVM exits. A class can be finalized only if no object of this class exists or the exist one are unricheable.
+The finalization is called also on classes, usually when JVM exits. A class can be finalized only if no object of this class exists or the exist one are unrecheable.
 
 ## JIT compilation
-Since interprete bytecode is not as fast as execute native code, the JVM look for bytecode that is executed several time and compile it to native code. This code is stored in the code cache area of the non-heap memory area.
+Since interpret bytecode is not as fast as execute native code, the JVM look for bytecode that is executed several time and compile it to native code. This code is stored in the code cache area of the non-heap memory area.
 
 ## JVM Internals
 
@@ -153,7 +153,7 @@ The linking consists in:
 
 - verification: correctness, overflow and underflow, variables and types validity, data-flow analysis
 - preparation: allocation of storage
-- resolution (optional): loading of the referred classes and interfaces (can be posponed to first use)
+- resolution (optional): loading of the referred classes and interfaces (can be postponed to first use)
 
 ## JVM Instruction set
 
@@ -163,12 +163,12 @@ The linking consists in:
 3. execute op
 
 ### Instruction format
-- Byte alligned, the number that preceed an instruction indicates its byte position. Each opcode occupies 1 byte.
+- Byte aligned, the number that precede an instruction indicates its byte position. Each opcode occupies 1 byte.
 - JVM supports 3 addressing modes:
     1. Intermediate, with a constant as part of instruction;
     2. Indexed, with the index of the local var array;
     3. Stack, pop from the top of the operand stack.
-- JVM instructions are explicity typed (`iload`, `lload`, ..., `istore`, ...):
+- JVM instructions are explicitly typed (`iload`, `lload`, ..., `istore`, ...):
     - i int
     - l long
     - s short
