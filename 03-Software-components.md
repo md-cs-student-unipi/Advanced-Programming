@@ -25,7 +25,7 @@ Components allows to **re-use software**, with the following benefits.
     - extendible (through inheritance and overriding)
 2. **Reliable**
     - correctness (respect specification)
-    - robustness (aka fault-tollerance: able to work in abnormal situations)
+    - robustness (a.k.a. fault-tolerance: able to work in abnormal situations)
 3. **Efficient**
 4. **Portable** to different platforms
 5. **Timely**: released when or before needed
@@ -40,12 +40,12 @@ Modules are available only for that specific programming language that you are u
 Modules are usually compiled separately, and the implementation is not known to the module user.
 
 Components has several concept already present in modules, but instead of being part of a program, as for the module, are **part of a system**.  
-Components can be anything and contain anyting.
+Components can be anything and contain anything.
 
 ## Component specification
 A **_Component specification_** describes, through a set of **_component interfaces_**, the behaviour of a set of _component objects_.  
-The component specification is realized as a **_component implementation_**, which is indipendently deployable as **_installed component_**. An instance of installed components is called **_component object_**.  
-A **_component composition_** is the processo of assembling components to form an application or a larger component.
+The component specification is realized as a **_component implementation_**, which is independently deployable as **_installed component_**. An instance of installed components is called **_component object_**.  
+A **_component composition_** is the process of assembling components to form an application or a larger component.
 
 
 # Java Beans
@@ -68,7 +68,7 @@ Furthermore, must:
 # Reflection in Java
 The ability of a program to manipulate itself as data.
 
-- **Instrospection**: can observe its internal state (read-only)
+- **Introspection**: can observe its internal state (read-only)
 - **Intercession**: can modify itself
 
 This abilities requires **reification**, a mechanism to encode the execution state as data.
@@ -134,11 +134,11 @@ Consists of:
 
 - **Common Language Specification (CLS)**: guidelines that languages should follow to interoperate with .NET languages. It does also type-checking.
 - Framework **Base Class Libraries (BCL)**: OO prepackaged functionalities and libraries for .NET programs. Includes CLI and GUI libraries and ASP.NET tools (Web Forms and XML Web services)
-- **Common Language Runtime (CLR)**: language-neutral development and execution evironment. Can run all .NET languages (36 atm) and uses a _Common Type System_. It is similar to the JVM: compiles in _Common Intermediate Language_ (CIL) executed by the _Common Language Interpreter_ (CLI). It also manages the memory allocation, includes a Garbage Collector and perform JIT compilation.
+- **Common Language Runtime (CLR)**: language-neutral development and execution environment. Can run all .NET languages (36 atm) and uses a _Common Type System_. It is similar to the JVM: compiles in _Common Intermediate Language_ (CIL) executed by the _Common Language Interpreter_ (CLI). It also manages the memory allocation, includes a Garbage Collector and perform JIT compilation.
 - **Common Type System**: Defines a rich set of  data types, based on an object-oriented model. Defines rules for interoperability between languages, scoping, visibility and inheritance.
 
 ### .NET Assembly vs Modules
-An Assembly is a .NET library. Has a .dll (local, not executable) or .exe (distributed, executable) extension and can be loaded dynamicaly.  
+An Assembly is a .NET library. Has a .dll (local, not executable) or .exe (distributed, executable) extension and can be loaded dynamically.  
 Consists in up to 4 parts: manifest, metadata, CIL code and resources.
 
 A Module has the same format of an Assembly, but doesn't include a manifest and is not dynamically loadable.
@@ -158,10 +158,10 @@ Example: in GUI-based interaction, the GUI loop decide when to call the methods.
 Loosely coupled systems provides many advantages, and in particular improve the **extensibility**, **testability** and **reusability** of the software.
 
 ### Service Locator and  Dependency Injection
-**Service Locator** helps in avoiding strong coupling exloiting object factoring and generic interfaces.
+**Service Locator** helps in avoiding strong coupling exploiting object factoring and generic interfaces.
 
 **Dependency Injection** allows avoiding hard-coded dependencies (strong coupling) injecting them at runtime.  
-It is very convinient for mock testing and for fast replacing of dependency.
+It is very convenient for mock testing and for fast replacing of dependency.
 
 IoC Containers create objects, ensure that all dependencies are satisfied and then provide a lifecycle support.
 
