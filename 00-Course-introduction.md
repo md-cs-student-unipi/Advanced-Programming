@@ -6,9 +6,9 @@ _Slides: [02 Presentation of the course](slides/02-Presentation-of-the-course.pd
 We are moving from Object Oriented Model to Component Oriented Model. That allows the reuse of code and to structure a complex application into pieces.
 
 ### Frameworks
-With frameworks we have the Inversion of control: the program flow of control is dictaded by the framework instead of by the caller. The framework provide a default behaviour, the programmer just have to override functions and handle events.
+With frameworks we have the Inversion of control: the program flow of control is dictated by the framework instead of by the caller. The framework provide a default behaviour, the programmer just have to override functions and handle events.
 
-- Software framework: collection of common code providing generic functionality that can be overriden or specialized.
+- Software framework: collection of common code providing generic functionality that can be overridden or specialized.
 - Application framework: software framework used to implement the standard application structure for a specific environment.
 
 Examples of frameworks:
